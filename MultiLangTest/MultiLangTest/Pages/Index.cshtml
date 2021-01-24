@@ -1,7 +1,10 @@
 ﻿@page "{language=DE}"
 @model MultiLangTest.Pages.IndexModel
+
 @{
     ViewData["Title"] = "Index";
+string url = "http://localhost:62272/";
+
 }
 
 <!DOCTYPE html>
@@ -19,8 +22,12 @@
         <h1>Test</h1>
     </div>
     <div class="btn-group">
-        <button class="btn btn-danger">Lang 1</button>
-        <button class="btn btn-danger">Lang 2</button>
+        @{ 
+            foreach(string s in Model.mls.getLangs())
+            {
+                <a class="btn btn-danger" href="@string.Concat(url, s)">@s</a>
+            }
+        }
     </div>
     @*Content*@
     <div class="container-fluid">

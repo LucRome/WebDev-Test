@@ -17,15 +17,25 @@ namespace MultiLangTest
 
         public string getContbyLang(string lang)
         {
-            foreach(MultiLangString ls in multiLangStrings)
+            foreach (MultiLangString ls in multiLangStrings)
             {
-                if(ls.Lang == lang)
+                if (ls.Lang == lang)
                 {
                     return ls.Content;
                 }
             }
-            string xy = $"wron lang ('{lang}')";
+            string xy = $"unsuported lang ('{lang}')";
             return xy;
+        }
+
+        public List<string> getLangs()
+        {
+            List<string> langs = new List<string>();
+            foreach (MultiLangString ls in multiLangStrings)
+            {
+                langs.Add(ls.Lang);
+            }
+            return langs;
         }
     }
 }
